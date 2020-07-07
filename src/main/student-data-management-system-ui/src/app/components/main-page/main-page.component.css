@@ -1,0 +1,15 @@
+.main-page-card{
+  padding: 0;
+  border: 1px red solid;
+  background-color: #a4ffe7;
+}
+
+.main-mat-card{
+  height: 100%;
+  width: 90%;
+  margin: 50px auto;
+}
+
+.btn-home, .btn-about, .btn-contact, .btn-courses, .btn-result{
+  margin: 20px;
+}
