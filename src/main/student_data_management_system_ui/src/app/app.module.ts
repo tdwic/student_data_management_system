@@ -9,6 +9,8 @@ import { CoursesPageComponent } from './courses-page/courses-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { ResultPageComponent } from './result-page/result-page.component';
+import { SignupPageComponent } from './signup-page/signup-page.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,15 @@ import { ResultPageComponent } from './result-page/result-page.component';
     CoursesPageComponent,
     ContactPageComponent,
     AboutPageComponent,
-    ResultPageComponent
+    ResultPageComponent,
+    SignupPageComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MDBBootstrapModule.forRoot()
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MDBBootstrapModule.forRoot(),
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
