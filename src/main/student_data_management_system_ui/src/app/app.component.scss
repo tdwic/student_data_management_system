@@ -20,11 +20,20 @@
 
     .nav-div , .router-div{
       padding: 10px;
+      border:2px red solid;
+    }
+
+    .title-div{
+      color: wheat;
+      h4{
+        font-weight: bold;
+      }
+
     }
 
     .router-div{
-      margin-top: -20px;
-      height: 88%;
+      margin-top: -35px;
+      height: 82%;
     }
 
   }
