@@ -11,6 +11,7 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { ResultPageComponent } from './result-page/result-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import {FormsModule} from '@angular/forms';
+import { MainloginComponent } from './mainlogin/mainlogin.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {FormsModule} from '@angular/forms';
     ContactPageComponent,
     AboutPageComponent,
     ResultPageComponent,
-    SignupPageComponent
+    SignupPageComponent,
+    MainloginComponent
   ],
     imports: [
         BrowserModule,

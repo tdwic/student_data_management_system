@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {AuthGuardService} from '../auth-guard.service';
+import {MainloginComponent} from '../mainlogin/mainlogin.component';
+import {CommonServiceService} from '../commonService/common-service.service';
 
 @Component({
   selector: 'app-courses-page',
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _router: Router,
+              private authGuardService:AuthGuardService,
+              private commonService : CommonServiceService) {
+
+
+  }
 
   ngOnInit(): void {
+
+
   }
+
+
 
 }

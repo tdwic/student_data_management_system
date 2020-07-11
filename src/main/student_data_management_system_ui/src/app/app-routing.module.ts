@@ -6,6 +6,7 @@ import {ResultPageComponent} from './result-page/result-page.component';
 import {ContactPageComponent} from './contact-page/contact-page.component';
 import {CoursesPageComponent} from './courses-page/courses-page.component';
 import {SignupPageComponent} from './signup-page/signup-page.component';
+import {MainloginComponent} from './mainlogin/mainlogin.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'contact', component: ContactPageComponent},
   {path: 'course', component: CoursesPageComponent},
   {path: 'signup', component: SignupPageComponent},
+  {path: 'login', component: MainloginComponent},
 
 ];
 
