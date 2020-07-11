@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Router} from '@angular/router';
-import {AuthGuardService} from '../auth-guard.service';
+import {AuthService} from '../auth-service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ import {AuthGuardService} from '../auth-guard.service';
 export class CommonServiceService {
 
   constructor(private _router: Router,
-              private authGuardService:AuthGuardService) {
+              private authGuardService:AuthService) {
 
   }
 

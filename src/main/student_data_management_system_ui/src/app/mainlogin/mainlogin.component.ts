@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthGuardService} from '../auth-guard.service';
+import {AuthService} from '../auth-service';
 import {Router} from '@angular/router';
 import {CommonServiceService} from '../commonService/common-service.service';
 
@@ -13,7 +13,7 @@ export class MainloginComponent implements OnInit {
   tempLocation:string;
   loginStatus:boolean = false;
 
-  constructor(private authGuardService:AuthGuardService,
+  constructor(private authService:AuthService,
               private _router:Router,
               private commonService : CommonServiceService) { }
 
@@ -24,6 +24,7 @@ export class MainloginComponent implements OnInit {
     const userName = event.target.querySelector('#userName').value;
     const passWord = event.target.querySelector('#password').value;
 
+    this.authService.authenticateUser(userName,passWord);
 
   }
 

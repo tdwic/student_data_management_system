@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {AuthGuardService} from '../auth-guard.service';
+import {AuthService} from '../auth-service';
 import {MainloginComponent} from '../mainlogin/mainlogin.component';
 import {CommonServiceService} from '../commonService/common-service.service';
 
@@ -12,7 +12,7 @@ import {CommonServiceService} from '../commonService/common-service.service';
 export class CoursesPageComponent implements OnInit {
 
   constructor(private _router: Router,
-              private authGuardService:AuthGuardService,
+              private authGuardService:AuthService,
               private commonService : CommonServiceService) {
 
 

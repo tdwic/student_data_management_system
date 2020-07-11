@@ -12,6 +12,8 @@ import { ResultPageComponent } from './result-page/result-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import {FormsModule} from '@angular/forms';
 import { MainloginComponent } from './mainlogin/mainlogin.component';
+import {AuthService} from './auth-service';
+import {AuthGuard} from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import { MainloginComponent } from './mainlogin/mainlogin.component';
         MDBBootstrapModule.forRoot(),
         FormsModule
     ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
