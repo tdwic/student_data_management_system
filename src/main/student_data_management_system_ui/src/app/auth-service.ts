@@ -43,6 +43,7 @@ export class AuthService {
   }
 
   athenticateAdmin(userName, passWord){
+
     let Admin = {
       adminTokenID:'',
       adminID:'',
@@ -61,7 +62,7 @@ export class AuthService {
       }
 
     },error => {
-
+      alert("DB error");
     });
 
   }
