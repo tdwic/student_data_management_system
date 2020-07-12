@@ -6,6 +6,8 @@ import com.sdms.system.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class StudentController {
@@ -24,6 +26,11 @@ public class StudentController {
     @RequestMapping(value = "/students/{studentID}",method = RequestMethod.GET)
     public Student registerNewStudent(@PathVariable String studentID){
         return studentService.findUserByUserName(studentID);
+    }
+
+    @RequestMapping(value = "/students",method = RequestMethod.GET)
+    public List<Student> getAllStudents(){
+        return studentService.getAllUsers();
     }
 
 

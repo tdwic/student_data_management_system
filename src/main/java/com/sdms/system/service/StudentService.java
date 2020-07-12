@@ -5,6 +5,8 @@ import com.sdms.system.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StudentService {
 
@@ -17,6 +19,10 @@ public class StudentService {
 
     public Student findUserByUserName(String studentID){
         return studentRepository.findByStudentID(studentID);
+    }
+
+    public List<Student> getAllUsers(){
+        return studentRepository.findAll();
     }
 
 
