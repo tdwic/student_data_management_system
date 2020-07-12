@@ -11,16 +11,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "student")
 public class Student {
 
-//   @Id
-//    private String Student_ID;
-//    private String Student_name;
-//    private String Address;
-//    private String Password;
-//    private String DoB;
-//    private String Gender;
-//    private String Telephone_No;
-//    private String Parent_Name;
-
     @Id
     private String studentTokenID;
     private String studentID;
