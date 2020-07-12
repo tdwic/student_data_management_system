@@ -25,7 +25,7 @@ export class AuthService {
       studentGender:'',
       studentPhone:'',
       studentParent:''
-    }
+    };
 
     this._commonService.authenticateUserBuUserID(userName).subscribe(res=>{
       Student = res;
@@ -41,6 +41,31 @@ export class AuthService {
 
 
   }
+
+  athenticateAdmin(userName, passWord){
+    let Admin = {
+      adminTokenID:'',
+      adminID:'',
+      password:'',
+    };
+
+    this._commonService.authenticateAdminByAdminID(userName).subscribe(res=>{
+      Admin = res;
+      console.log(Admin);
+
+      if (userName == Admin.adminID && passWord == Admin.password){
+        alert("Login Success ! Welcome Admin");
+        localStorage.setItem('token',Admin.adminTokenID.toString());
+      }else {
+        alert("Wrong Credentials");
+      }
+
+    },error => {
+
+    });
+
+  }
+
 
   loggedInUser(){
     return !! localStorage.getItem('token')
