@@ -13,6 +13,12 @@ export class MainloginComponent implements OnInit {
   tempLocation:string;
   loginStatus:boolean = false;
 
+  userType:string;
+
+  userRoleAnnotationForAdmin:string = "AD";
+  userRoleAnnotationForStudent:string = "ST";
+  userRoleAnnotationForTeacher:string = "TE";
+
   constructor(private authService:AuthService,
               private _router:Router,
               private commonService : CommonServiceService) { }
@@ -23,6 +29,18 @@ export class MainloginComponent implements OnInit {
   loginUser(event){
     const userName = event.target.querySelector('#userName').value;
     const passWord = event.target.querySelector('#password').value;
+
+    this.userType = userName.substring(0,2);
+
+    if (this.userType == this.userRoleAnnotationForStudent){
+      alert("Login User Role "+this.userType+" Student");
+    }else if (this.userType == this.userRoleAnnotationForAdmin){
+      alert("Login User Role "+this.userType+" Admin");
+    }else if (this.userType == this.userRoleAnnotationForTeacher){
+      alert("Login User Role "+this.userType+" Teacher");
+    }else {
+
+    }
 
     this.authService.authenticateUser(userName,passWord);
 
