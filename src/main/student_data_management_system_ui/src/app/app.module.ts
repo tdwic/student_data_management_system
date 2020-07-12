@@ -14,6 +14,7 @@ import {FormsModule} from '@angular/forms';
 import { MainloginComponent } from './mainlogin/mainlogin.component';
 import {AuthService} from './auth-service';
 import {AuthGuard} from './auth.guard';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -29,10 +30,11 @@ import {AuthGuard} from './auth.guard';
     imports: [
         BrowserModule,
         AppRoutingModule,
+        HttpClientModule,
         MDBBootstrapModule.forRoot(),
         FormsModule
     ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService,HttpClientModule, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

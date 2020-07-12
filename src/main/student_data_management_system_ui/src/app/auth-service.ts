@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Router} from '@angular/router';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {CommonServiceService} from "./commonService/common-service.service";
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +9,37 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 export class AuthService {
 
   constructor(private _router: Router,
+              private _commonService: CommonServiceService
               ) { }
-  private http: HttpClient;
+
 
   authenticateUser(userName, passWord){
-    if (userName == "a" && passWord == "b"){
-      localStorage.setItem('token',"#123456789");
-    }else if(userName == "c" && passWord == "d"){
-      localStorage.setItem('token',"#987654321");
+
+    let Student = {
+      studentTokenID:'',
+      studentID:'',
+      studentName:'',
+      studentAddress:'',
+      studentPassword:'',
+      studentD0B:'',
+      studentGender:'',
+      studentPhone:'',
+      studentParent:''
     }
+
+    this._commonService.authenticateUserBuUserID(userName).subscribe(res=>{
+      Student = res;
+      console.log(Student);
+
+      if (userName == Student.studentID && passWord == Student.studentPassword){
+        alert("Login Success ! Welcome");
+        localStorage.setItem('token',Student.studentTokenID.toString());
+      }else {
+        alert("Wrong Credentials");
+      }
+    })
+
+
   }
 
   loggedInUser(){
