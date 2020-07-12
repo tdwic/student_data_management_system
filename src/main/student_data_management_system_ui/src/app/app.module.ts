@@ -10,7 +10,7 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { ResultPageComponent } from './result-page/result-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MainloginComponent } from './mainlogin/mainlogin.component';
 import {AuthService} from './auth-service';
 import {AuthGuard} from './auth.guard';
@@ -32,7 +32,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
         AppRoutingModule,
         HttpClientModule,
         MDBBootstrapModule.forRoot(),
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ],
   providers: [AuthService,HttpClientModule, AuthGuard],
   bootstrap: [AppComponent]

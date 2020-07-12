@@ -15,4 +15,8 @@ export class CommonServiceService {
     return this.http.get<any>("http://localhost:8181/students/" + userID);
   }
 
+  public signUpNewUser(Student){
+    return this.http.post<any>("http://localhost:8181/students" , Student);
+  }
+
 }
