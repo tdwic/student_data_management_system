@@ -19,8 +19,6 @@ export class CoursesPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
   }
 
 

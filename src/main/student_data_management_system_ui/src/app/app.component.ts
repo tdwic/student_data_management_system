@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {AuthService} from './auth-service';
+import {CommonServiceService} from "./commonService/common-service.service";
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,11 @@ import {AuthService} from './auth-service';
 export class AppComponent {
   title = 'angular-free-demo';
 
-  constructor(public _authService: AuthService) {
+  constructor(public _authService: AuthService,
+              private commonService : CommonServiceService) {
   }
 
+  clicked(routeName: string) {
+    this.commonService.tempLocation.push(routeName);
+  }
 }

@@ -10,7 +10,7 @@ import {CommonServiceService} from '../commonService/common-service.service';
 })
 export class MainloginComponent implements OnInit {
 
-  tempLocation:string;
+  tempLocation:string[];
   loginStatus:boolean = false;
 
   userType:string;

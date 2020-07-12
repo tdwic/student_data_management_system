@@ -35,6 +35,11 @@ export class AuthService {
         alert("Login Success ! Welcome");
         localStorage.setItem('token',Student.studentTokenID.toString());
         localStorage.setItem('studentID',Student.studentID.toString())
+        if (this._commonService.tempLocation.length == 0){
+          this._router.navigate(['home']);
+        }else {
+          this._router.navigate([this._commonService.tempLocation.pop()]);
+        }
       }else {
         alert("Wrong Credentials");
       }
@@ -58,6 +63,11 @@ export class AuthService {
       if (userName == Admin.adminID && passWord == Admin.password){
         alert("Login Success ! Welcome Admin");
         localStorage.setItem('token',Admin.adminTokenID.toString());
+        if (this._commonService.tempLocation.length == 0){
+          this._router.navigate(['home']);
+        }else {
+          this._router.navigate([this._commonService.tempLocation.pop()]);
+        }
       }else {
         alert("Wrong Credentials");
       }
@@ -78,6 +88,13 @@ export class AuthService {
     if(localStorage.getItem('studentID') != null){
       localStorage.removeItem('studentID');
     }
+
+    if (this._commonService.tempLocation.length != 0){
+      this._commonService.tempLocation = [];
+    }
+
+    console.log("after logout "+ this._commonService.tempLocation.length );
+
     this._router.navigate(['home']);
   }
 

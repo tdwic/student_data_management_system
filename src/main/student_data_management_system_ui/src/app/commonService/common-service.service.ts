@@ -9,6 +9,9 @@ import {Observable} from "rxjs";
 })
 export class CommonServiceService {
 
+  tempLocation:string[] = [];
+
+
   constructor(private http: HttpClient) {  }
 
   public authenticateUserBuUserID(userID):Observable<any>{
