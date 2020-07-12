@@ -7,5 +7,29 @@
       <h4 >Results</h4>
     </mdb-card-title>
 
+
+    <h1 *ngIf="!visible">No Results To Show</h1>
+
+    <table style="width:100%" border="1px" *ngIf="visible">
+      <tr>
+        <th>Student ID</th>
+        <th>First Term Marks</th>
+        <th>Second Term Marks</th>
+        <th>Third Term Marks</th>
+        <th>First Term Note</th>
+        <th>Second Term Note</th>
+        <th>Third Term Note</th>
+      </tr>
+      <tr>
+        <td>{{StudentMarks.studentID}}</td>
+        <td>{{StudentMarks.firstTermMarks}}</td>
+        <td>{{StudentMarks.secondTermMarks}}</td>
+        <td>{{StudentMarks.thirdTermMarks}}</td>
+        <td>{{StudentMarks.firstTermNote}}</td>
+        <td>{{StudentMarks.secondTermNote}}</td>
+        <td>{{StudentMarks.thirdTermNote}}</td>
+      </tr>
+    </table>
+
   </mdb-card-body>
 </mdb-card>

@@ -19,6 +19,10 @@ export class CommonServiceService {
     return this.http.get<any>("http://localhost:8181/admin/" + adminID);
   }
 
+  public getStudentMarks(studentID):Observable<any>{
+    return this.http.get<any>("http://localhost:8181/marks/"+studentID);
+  }
+
 
   public signUpNewUser(Student){
     return this.http.post<any>("http://localhost:8181/students" , Student);

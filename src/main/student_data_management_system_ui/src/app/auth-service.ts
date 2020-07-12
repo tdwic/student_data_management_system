@@ -34,6 +34,7 @@ export class AuthService {
       if (userName == Student.studentID && passWord == Student.studentPassword){
         alert("Login Success ! Welcome");
         localStorage.setItem('token',Student.studentTokenID.toString());
+        localStorage.setItem('studentID',Student.studentID.toString())
       }else {
         alert("Wrong Credentials");
       }
@@ -74,6 +75,9 @@ export class AuthService {
 
   logOutUser(){
     localStorage.removeItem('token');
+    if(localStorage.getItem('studentID') != null){
+      localStorage.removeItem('studentID');
+    }
     this._router.navigate(['home']);
   }
 
