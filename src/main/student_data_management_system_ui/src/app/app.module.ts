@@ -20,6 +20,10 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { ManageStudentDetailsComponent } from './manage-student-details/manage-student-details.component';
+import { ManageTeacherDetailsComponent } from './manage-teacher-details/manage-teacher-details.component';
+import { AddAnnouncementDetailsComponent } from './add-announcement-details/add-announcement-details.component';
+import { InsertExamMarksComponent } from './insert-exam-marks/insert-exam-marks.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     SignupPageComponent,
     MainloginComponent,
     TeacherPageComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    ManageStudentDetailsComponent,
+    ManageTeacherDetailsComponent,
+    AddAnnouncementDetailsComponent,
+    InsertExamMarksComponent
   ],
   imports: [
     BrowserModule,

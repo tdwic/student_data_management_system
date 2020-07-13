@@ -10,6 +10,9 @@ import {MainloginComponent} from './mainlogin/mainlogin.component';
 import {AuthGuard} from './auth.guard';
 import {TeacherPageComponent} from "./teacher-page/teacher-page.component";
 import {AdminPageComponent} from "./admin-page/admin-page.component";
+import {AddAnnouncementDetailsComponent} from "./add-announcement-details/add-announcement-details.component";
+import {ManageStudentDetailsComponent} from "./manage-student-details/manage-student-details.component";
+import {InsertExamMarksComponent} from "./insert-exam-marks/insert-exam-marks.component";
 
 
 const routes: Routes = [
@@ -59,6 +62,28 @@ const routes: Routes = [
     component: MainloginComponent
   },
 
+
+
+  {
+    path:'announcement',
+    component:AddAnnouncementDetailsComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path:'studentDetails',
+    component:ManageStudentDetailsComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path:'teacherDetails',
+    component:AdminPageComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path:'insertMarks',
+    component:InsertExamMarksComponent,
+    canActivate:[AuthGuard]
+  }
 ];
 
 @NgModule({

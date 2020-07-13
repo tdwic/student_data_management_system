@@ -40,6 +40,7 @@ export class MainloginComponent implements OnInit {
       this.authService.authenticateUser(userName,passWord, "_ADMIN_");
     }else if (this.userType == this.userRoleAnnotationForTeacher){
       alert("Login User Role "+this.userType+" Teacher");
+      this.authService.authenticateUser(userName,passWord, "_TEACHER_");
     }else {
 
     }
