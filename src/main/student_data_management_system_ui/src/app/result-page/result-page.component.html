@@ -7,29 +7,66 @@
       <h4 >Results</h4>
     </mdb-card-title>
 
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
 
-    <h1 *ngIf="!visible">No Results To Show</h1>
 
-    <table style="width:100%" border="1px" *ngIf="visible">
-      <tr>
-        <th>Student ID</th>
-        <th>First Term Marks</th>
-        <th>Second Term Marks</th>
-        <th>Third Term Marks</th>
-        <th>First Term Note</th>
-        <th>Second Term Note</th>
-        <th>Third Term Note</th>
-      </tr>
-      <tr>
-        <td>{{StudentMarks.studentID}}</td>
-        <td>{{StudentMarks.firstTermMarks}}</td>
-        <td>{{StudentMarks.secondTermMarks}}</td>
-        <td>{{StudentMarks.thirdTermMarks}}</td>
-        <td>{{StudentMarks.firstTermNote}}</td>
-        <td>{{StudentMarks.secondTermNote}}</td>
-        <td>{{StudentMarks.thirdTermNote}}</td>
-      </tr>
-    </table>
+        <!-- Position Column -->
+        <ng-container matColumnDef="studentID">
+          <th mat-header-cell *matHeaderCellDef>Student ID</th>
+          <td mat-cell *matCellDef="let element"> {{element.studentID}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="firstTermMarks">
+          <th mat-header-cell *matHeaderCellDef> First Term Marks </th>
+          <td mat-cell *matCellDef="let element"> {{element.firstTermMarks}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="secondTermMarks">
+          <th mat-header-cell *matHeaderCellDef> Second Term Marks </th>
+          <td mat-cell *matCellDef="let element"> {{element.secondTermMarks}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="thirdTermMarks">
+          <th mat-header-cell *matHeaderCellDef> Third Term Marks </th>
+          <td mat-cell *matCellDef="let element"> {{element.thirdTermMarks}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="firstTermNote">
+          <th mat-header-cell *matHeaderCellDef> First Term Note </th>
+          <td mat-cell *matCellDef="let element"> {{element.firstTermNote}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="secondTermNote">
+          <th mat-header-cell *matHeaderCellDef> Second Term Note </th>
+          <td mat-cell *matCellDef="let element"> {{element.secondTermNote}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="thirdTermNote">
+          <th mat-header-cell *matHeaderCellDef> Third Term Note </th>
+          <td mat-cell *matCellDef="let element"> {{element.thirdTermNote}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <h1 *ngIf="visible">No Results To Show</h1>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+
+
+
+
+
+
+
 
   </mdb-card-body>
 </mdb-card>

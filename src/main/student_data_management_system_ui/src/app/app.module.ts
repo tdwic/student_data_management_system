@@ -17,6 +17,9 @@ import {AuthGuard} from './auth.guard';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { TeacherPageComponent } from './teacher-page/teacher-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableModule} from "@angular/material/table";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -31,14 +34,17 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     TeacherPageComponent,
     AdminPageComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        MDBBootstrapModule.forRoot(),
-        FormsModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MDBBootstrapModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
+    NoopAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule
+  ],
   providers: [AuthService,HttpClientModule, AuthGuard],
   bootstrap: [AppComponent]
 })

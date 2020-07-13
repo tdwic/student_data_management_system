@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {CommonServiceService} from "../commonService/common-service.service";
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 class StudentResult {
   recordID: string;
@@ -22,11 +24,17 @@ export class ResultPageComponent implements OnInit {
   visible:boolean=false;
   studentResultList:StudentResult[];
 
+  displayedColumns:string[] = ['studentID','firstTermMarks','secondTermMarks','thirdTermMarks','firstTermNote','secondTermNote','thirdTermNote'];
+  dataSource = new MatTableDataSource(this.studentResultList);
+
+  @ViewChild(MatPaginator,{static:true})paginator:MatPaginator;
+
   constructor(private commonService : CommonServiceService) {
     this.getStudentMarks(localStorage.getItem('studentID'));
   }
 
   ngOnInit(): void {
+    this.dataSource.paginator = this.paginator;
     this.getStudentMarks(localStorage.getItem('studentID'));
   }
 
@@ -44,9 +52,9 @@ export class ResultPageComponent implements OnInit {
   getStudentMarks(studentID:string){
 
     this.commonService.getStudentMarks(studentID).subscribe( res => {
-      this.StudentMarks = res;
       this.studentResultList = res;
-      if (this.StudentMarks != null){
+      this.dataSource = new MatTableDataSource<StudentResult>(this.studentResultList);
+      if (this.studentResultList.length == 0){
         this.visible=true;
       }else {
         this.visible = false;
