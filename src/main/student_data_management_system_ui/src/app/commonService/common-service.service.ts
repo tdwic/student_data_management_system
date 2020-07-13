@@ -10,34 +10,52 @@ import {Observable} from "rxjs";
 export class CommonServiceService {
 
   tempLocation:string[] = [];
-
+  _apiUrl_:string = "http://localhost:8181";
 
   constructor(private http: HttpClient) {  }
 
-  public authenticateUserBuUserID(userID):Observable<any>{
-    return this.http.get<any>("http://localhost:8181/students/" + userID);
+  //FindAll Methods
+  public getAllStudentList():Observable<any>{
+    return this.http.get<any>(this._apiUrl_+"/students");
   }
 
-  public getAllStudentList():Observable<any>{
-    return this.http.get<any>("http://localhost:8181/students");
+  public getAllTeacherList():Observable<any>{
+    return this.http.get<any>(this._apiUrl_+"/teacher");
+  }
+  //FindAll Methods
+
+
+  //FindById Methods
+  public authenticateUserBuUserID(userID):Observable<any>{
+    return this.http.get<any>(this._apiUrl_+"/students/" + userID);
   }
 
   public authenticateAdminByAdminID(adminID):Observable<any>{
-    return this.http.get<any>("http://localhost:8181/admin/" + adminID);
+    return this.http.get<any>(this._apiUrl_+"/admin/" + adminID);
   }
 
   public getStudentMarks(studentID):Observable<any>{
-    return this.http.get<any>("http://localhost:8181/marks/"+studentID);
+    return this.http.get<any>(this._apiUrl_+"/marks/"+studentID);
   }
 
+  public authenticateTeacherByID(teacherID):Observable<any>{
+    return this.http.get<any>(this._apiUrl_+"/teacher/"+teacherID);
+  }
+  //FindById Methods
 
 
+  //Post Methods
   public signUpNewUser(Student){
-    return this.http.post<any>("http://localhost:8181/students" , Student);
+    return this.http.post<any>(this._apiUrl_+"/students" , Student);
   }
 
   public enterStudentMarks(Marks){
-    return this.http.post<any>("http://localhost:8181/marks" , Marks);
+    return this.http.post<any>(this._apiUrl_+"/marks" , Marks);
   }
+
+  public teacherSignUp(Teacher){
+    return this.http.post<any>(this._apiUrl_+"/teacher" , Teacher);
+  }
+  //Post Methods
 
 }

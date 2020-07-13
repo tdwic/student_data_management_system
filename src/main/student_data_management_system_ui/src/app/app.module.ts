@@ -24,6 +24,8 @@ import { ManageStudentDetailsComponent } from './manage-student-details/manage-s
 import { ManageTeacherDetailsComponent } from './manage-teacher-details/manage-teacher-details.component';
 import { AddAnnouncementDetailsComponent } from './add-announcement-details/add-announcement-details.component';
 import { InsertExamMarksComponent } from './insert-exam-marks/insert-exam-marks.component';
+import { UpdateStudentComponent } from './update-student/update-student.component';
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -40,8 +42,12 @@ import { InsertExamMarksComponent } from './insert-exam-marks/insert-exam-marks.
     ManageStudentDetailsComponent,
     ManageTeacherDetailsComponent,
     AddAnnouncementDetailsComponent,
-    InsertExamMarksComponent
+    InsertExamMarksComponent,
+    UpdateStudentComponent
   ],
+
+  entryComponents:[UpdateStudentComponent],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -51,7 +57,8 @@ import { InsertExamMarksComponent } from './insert-exam-marks/insert-exam-marks.
     ReactiveFormsModule,
     NoopAnimationsModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ],
   providers: [AuthService,HttpClientModule, AuthGuard],
   bootstrap: [AppComponent]

@@ -34,14 +34,28 @@
               <a class="nav-link waves-light" routerLink="contact" mdbWavesEffect>CONTACT</a>
             </li>
 
-            <li class="nav-item" *ngIf="_authService.adminLogged()">
-              <a class="nav-link waves-light" routerLink="teacher" mdbWavesEffect>ADMIN PANEL</a>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown" dropdown *ngIf="_authService.adminLogged()">
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                ADMIN PANEL<span class="caret"></span></a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary adminButton" role="menu">
+                <button mdbBtn color="primary" mdbWavesEffect routerLink="announcement">Manage Announcement</button>
+                <button mdbBtn color="primary" mdbWavesEffect routerLink="studentDetails">Manage Student Details</button>
+                <button mdbBtn color="primary" mdbWavesEffect routerLink="teacherDetails">Manage Teacher Details</button>
+                <button mdbBtn color="primary" mdbWavesEffect routerLink="insertMarks">Manage Exam Marks</button>
+              </div>
             </li>
 
-            <li class="nav-item" *ngIf="_authService.teacherLogged()">
-              <a class="nav-link waves-light" routerLink="teacher" mdbWavesEffect>TEACHER PANEL</a>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown" dropdown *ngIf="_authService.teacherLogged()">
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                TEACHER PANEL<span class="caret"></span></a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary adminButton" role="menu">
+                <button mdbBtn color="primary" mdbWavesEffect routerLink="announcement">Manage Announcement</button>
+                <button mdbBtn color="primary" mdbWavesEffect routerLink="studentDetails">Manage Student Details</button>
+                <button mdbBtn color="primary" mdbWavesEffect routerLink="insertMarks">Manage Exam Marks</button>
+              </div>
             </li>
-
           </ul>
           <!-- Links -->
 

@@ -1,1 +1,24 @@
-<p>admin-page works!</p>
+<mdb-card class="main-card">
+  <!--Card content-->
+  <mdb-card-body style="color: black;">
+
+    <!--Title-->
+    <mdb-card-title>
+      <h4 >Admin</h4>
+    </mdb-card-title>
+
+    <button mdbBtn color="primary" mdbWavesEffect routerLink="announcement">announcement</button>
+    <button mdbBtn color="primary" mdbWavesEffect routerLink="studentDetails">studentDetails</button>
+    <button mdbBtn color="primary" mdbWavesEffect routerLink="teacherDetails">teacherDetails</button>
+    <button mdbBtn color="primary" mdbWavesEffect routerLink="insertMarks">insertMarks</button>
+
+    <router-outlet></router-outlet>
+
+  </mdb-card-body>
+</mdb-card>
+
+
+
+
+
+

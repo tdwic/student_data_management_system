@@ -87,6 +87,36 @@ export class AuthService {
 
     }else if (userType == '_TEACHER_'){
 
+      let Teacher = {
+        teacherTokenID:'',
+        teacherID:'',
+        teacherName:'',
+        teacherPassword:'',
+        teacherGender:'',
+        teacherEmail:'',
+        teacherContactNO:''
+      };
+
+      this._commonService.authenticateTeacherByID(userName).subscribe( res => {
+        Teacher = res;
+        console.log(Teacher);
+
+        if (userName == Teacher.teacherID && passWord == Teacher.teacherPassword){
+          alert("Login Success ! Welcome Admin");
+          this.loggedUserRoleType = this.teacherRoleEncryptCodeNumber;
+          localStorage.setItem('token',Teacher.teacherTokenID);
+          localStorage.setItem('role',this.loggedUserRoleType);
+          if (this._commonService.tempLocation.length == 0){
+            this._router.navigate(['home']);
+          }else {
+            this._router.navigate([this._commonService.tempLocation.pop()]);
+          }
+        }else {
+          alert("Wrong Credentials");
+        }
+
+      })
+
     }
   }
 

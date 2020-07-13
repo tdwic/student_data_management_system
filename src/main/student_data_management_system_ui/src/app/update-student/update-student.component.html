@@ -1,0 +1,124 @@
+<p>update-student works!{{studentDetails.studentName}}</p>
+<!-- Material form grid -->
+<form [formGroup]="signUpForm"  (ngSubmit)="signUpUser()" >
+  <!-- Grid row -->
+  <div class="row">
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Material input -->
+      <div class="md-form mt-0">
+        <input mdbInput type="text" formControlName="firstName" class="form-control" placeholder="First name">
+      </div>
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Material input -->
+      <div class="md-form mt-0">
+        <input mdbInput type="text" formControlName="lastName" class="form-control" placeholder="Last name">
+      </div>
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+  <!-- Grid row -->
+  <div class="row">
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Material input -->
+      <div class="md-form mt-0">
+        <input mdbInput type="text" formControlName="studentID" class="form-control" placeholder="Student ID">
+      </div>
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Material input -->
+      <div class="md-form mt-0">
+        <input mdbInput type="text" formControlName="studentAddress" class="form-control" placeholder="Student Address">
+      </div>
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+  <!-- Grid row -->
+  <div class="row">
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Material input -->
+      <div class="md-form mt-0">
+        <input mdbInput type="password" name="password" formControlName="studentPassword" class="form-control" placeholder="Password">
+        <span>Wrong Pass</span>
+      </div>
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Material input -->
+      <div class="md-form mt-0">
+        <input mdbInput type="password" formControlName="studentPasswordConfirm" class="form-control" placeholder="Confirm Password">
+      </div>
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+  <!-- Grid row -->
+  <div class="row">
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Material input -->
+      <div class="md-form mt-0">
+        <input mdbInput type="text" formControlName="studentPhone" class="form-control" placeholder="Contact Number">
+      </div>
+    </div>
+    <!-- Grid column -->
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Material input -->
+      <div class="md-form mt-0">
+        <select formControlName="studentGender" class="form-control ">
+          <option selected>Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+  <!-- Grid row -->
+  <div class="row">
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Material input -->
+      <div class="md-form mt-0">
+        <input mdbInput type="date" formControlName="studentD0B" class="form-control" placeholder="Date Of Birth">
+      </div>
+    </div>
+    <!-- Grid column -->
+    <!-- Grid column -->
+    <div class="col">
+      <!-- Material input -->
+      <div class="md-form mt-0">
+        <input mdbInput type="text" formControlName="studentParent" class="form-control" placeholder="Parent Name">
+      </div>
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+  <input mdbBtn color="primary" mdbWavesEffect type="submit" value="Sign Up">
+</form>
+<!-- Material form grid -->
