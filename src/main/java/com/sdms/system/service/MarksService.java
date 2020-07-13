@@ -5,6 +5,8 @@ import com.sdms.system.repository.MarksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MarksService {
 
@@ -15,7 +17,7 @@ public class MarksService {
         return marksRepository.save(marks);
     }
 
-    public Marks findMarksByStudentID(String studentID){
+    public List<Marks> findMarksByStudentID(String studentID){
         return marksRepository.findMarksByStudentID(studentID);
     }
 

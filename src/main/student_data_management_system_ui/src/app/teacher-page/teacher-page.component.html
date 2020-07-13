@@ -1,0 +1,111 @@
+<mdb-card class="main-card">
+  <!--Card content-->
+  <mdb-card-body style="color: black;">
+
+    <!--Title-->
+    <mdb-card-title>
+      <h4 >Teacher</h4>
+    </mdb-card-title>
+
+    <!-- Material form grid -->
+    <form [formGroup]="marksForm"  (ngSubmit)="enterMarks()" >
+
+      <!-- Grid row -->
+      <div class="row">
+        <!-- Grid column -->
+        <div class="col">
+          <!-- Material input -->
+          <div class="md-form mt-0">
+            <select formControlName="studentID" class="form-control ">
+              <option *ngFor="let student of studentList" [value]="student.studentID">{{student.studentID}}</option>
+            </select>
+          </div>
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+
+
+      <!-- Grid row -->
+      <div class="row">
+        <!-- Grid column -->
+        <div class="col">
+          <!-- Material input -->
+          <div class="md-form mt-0">
+            <input mdbInput type="text" formControlName="studentFirstTermMark" class="form-control" placeholder="First Term Marks">
+          </div>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col">
+          <!-- Material input -->
+          <div class="md-form mt-0">
+            <input mdbInput type="text" formControlName="studentSecondTermMark" class="form-control" placeholder="Second Term Marks">
+          </div>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col">
+          <!-- Material input -->
+          <div class="md-form mt-0">
+            <input mdbInput type="text" formControlName="studentThirdTermMark" class="form-control" placeholder="Third Term Marks">
+          </div>
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+
+
+      <!-- Grid row -->
+      <div class="row">
+        <!-- Grid column -->
+        <div class="col">
+          <!-- Material input -->
+          <div class="md-form mt-0">
+            <input mdbInput type="text" formControlName="studentFirstTermNote" class="form-control" placeholder="First Term Note">
+          </div>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col">
+          <!-- Material input -->
+          <div class="md-form mt-0">
+            <input mdbInput type="text" formControlName="studentSecondTermNote" class="form-control" placeholder="Second Term Note">
+          </div>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col">
+          <!-- Material input -->
+          <div class="md-form mt-0">
+            <input mdbInput type="text" formControlName="studentThirdTermNote" class="form-control" placeholder="Third Term Note">
+          </div>
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+
+
+
+
+
+
+
+
+
+      <input mdbBtn color="primary" mdbWavesEffect type="submit" value="Enter Marks">
+    </form>
+    <!-- Material form grid -->
+
+  </mdb-card-body>
+</mdb-card>

@@ -34,10 +34,10 @@ export class MainloginComponent implements OnInit {
 
     if (this.userType == this.userRoleAnnotationForStudent){
       alert("Login User Role "+this.userType+" Student");
-      this.authService.authenticateUser(userName,passWord);
+      this.authService.authenticateUser(userName,passWord, "_STUDENT_");
     }else if (this.userType == this.userRoleAnnotationForAdmin){
       alert("Login User Role "+this.userType+" Admin");
-      this.authService.athenticateAdmin(userName,passWord);
+      this.authService.authenticateUser(userName,passWord, "_ADMIN_");
     }else if (this.userType == this.userRoleAnnotationForTeacher){
       alert("Login User Role "+this.userType+" Teacher");
     }else {

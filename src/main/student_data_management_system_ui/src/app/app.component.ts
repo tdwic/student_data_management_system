@@ -10,6 +10,7 @@ import {CommonServiceService} from "./commonService/common-service.service";
 export class AppComponent {
   title = 'angular-free-demo';
 
+
   constructor(public _authService: AuthService,
               private commonService : CommonServiceService) {
   }
@@ -17,4 +18,5 @@ export class AppComponent {
   clicked(routeName: string) {
     this.commonService.tempLocation.push(routeName);
   }
+
 }

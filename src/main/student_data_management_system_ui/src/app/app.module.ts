@@ -15,6 +15,8 @@ import { MainloginComponent } from './mainlogin/mainlogin.component';
 import {AuthService} from './auth-service';
 import {AuthGuard} from './auth.guard';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { TeacherPageComponent } from './teacher-page/teacher-page.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     AboutPageComponent,
     ResultPageComponent,
     SignupPageComponent,
-    MainloginComponent
+    MainloginComponent,
+    TeacherPageComponent,
+    AdminPageComponent
   ],
     imports: [
         BrowserModule,

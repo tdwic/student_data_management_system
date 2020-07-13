@@ -18,6 +18,10 @@ export class CommonServiceService {
     return this.http.get<any>("http://localhost:8181/students/" + userID);
   }
 
+  public getAllStudentList():Observable<any>{
+    return this.http.get<any>("http://localhost:8181/students");
+  }
+
   public authenticateAdminByAdminID(adminID):Observable<any>{
     return this.http.get<any>("http://localhost:8181/admin/" + adminID);
   }
@@ -27,8 +31,13 @@ export class CommonServiceService {
   }
 
 
+
   public signUpNewUser(Student){
     return this.http.post<any>("http://localhost:8181/students" , Student);
+  }
+
+  public enterStudentMarks(Marks){
+    return this.http.post<any>("http://localhost:8181/marks" , Marks);
   }
 
 }

@@ -8,6 +8,8 @@ import {CoursesPageComponent} from './courses-page/courses-page.component';
 import {SignupPageComponent} from './signup-page/signup-page.component';
 import {MainloginComponent} from './mainlogin/mainlogin.component';
 import {AuthGuard} from './auth.guard';
+import {TeacherPageComponent} from "./teacher-page/teacher-page.component";
+import {AdminPageComponent} from "./admin-page/admin-page.component";
 
 
 const routes: Routes = [
@@ -36,6 +38,16 @@ const routes: Routes = [
   {
     path: 'course',
     component: CoursesPageComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path:'teacher',
+    component:TeacherPageComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path:'admin',
+    component:AdminPageComponent,
     canActivate:[AuthGuard]
   },
   {

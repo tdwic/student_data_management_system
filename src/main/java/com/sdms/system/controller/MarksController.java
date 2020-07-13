@@ -5,6 +5,8 @@ import com.sdms.system.service.MarksService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class MarksController {
@@ -18,7 +20,7 @@ public class MarksController {
     }
 
     @RequestMapping(value = "/marks/{studentID}", method = RequestMethod.GET)
-    public Marks addNewMark(@PathVariable String studentID){
+    public List<Marks> addNewMark(@PathVariable String studentID){
         return marksService.findMarksByStudentID(studentID);
     }
 
