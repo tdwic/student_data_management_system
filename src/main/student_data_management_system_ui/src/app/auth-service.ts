@@ -16,7 +16,7 @@ export class AuthService {
 
   constructor(private _router: Router,
               private _commonService: CommonServiceService
-              ) { }
+              ) {  }
 
 
   authenticateUser(userName, passWord, userType){
@@ -37,21 +37,21 @@ export class AuthService {
 
       this._commonService.authenticateUserBuUserID(userName).subscribe(res=>{
         Student = res;
-        console.log(Student);
 
         if (userName == Student.studentID && passWord == Student.studentPassword){
-          alert("Login Success ! Welcome");
+          this._commonService.snackBarShow("Login Success ! Welcome");
           this.loggedUserRoleType = this.studentRoleEncryptCodeNumber;
           localStorage.setItem('token',Student.studentTokenID.toString());
           localStorage.setItem('studentID',Student.studentID.toString());
           localStorage.setItem('role',this.loggedUserRoleType);
+          localStorage.setItem('name',Student.studentName.split(' ')[0]);
           if (this._commonService.tempLocation.length == 0){
             this._router.navigate(['home']);
           }else {
             this._router.navigate([this._commonService.tempLocation.pop()]);
           }
         }else {
-          alert("Wrong Credentials");
+          this._commonService.snackBarShow("Wrong Credentials");
         }
       })
 
@@ -68,8 +68,9 @@ export class AuthService {
         console.log(Admin);
 
         if (userName == Admin.adminID && passWord == Admin.password){
-          alert("Login Success ! Welcome Admin");
+          this._commonService.snackBarShow("Login Success ! Welcome Admin");
           this.loggedUserRoleType = this.adminRoleEncryptCodeNumber;
+          localStorage.setItem('name',Admin.adminID);
           localStorage.setItem('token',Admin.adminTokenID.toString());
           localStorage.setItem('role',this.loggedUserRoleType);
           if (this._commonService.tempLocation.length == 0){
@@ -78,11 +79,11 @@ export class AuthService {
             this._router.navigate([this._commonService.tempLocation.pop()]);
           }
         }else {
-          alert("Wrong Credentials");
+          this._commonService.snackBarShow("Wrong Credentials");
         }
 
       },error => {
-        alert("DB error");
+        this._commonService.snackBarShow("DB error");
       });
 
     }else if (userType == '_TEACHER_'){
@@ -102,17 +103,18 @@ export class AuthService {
         console.log(Teacher);
 
         if (userName == Teacher.teacherID && passWord == Teacher.teacherPassword){
-          alert("Login Success ! Welcome Admin");
+          this._commonService.snackBarShow("Login Success ! Welcome Admin");
           this.loggedUserRoleType = this.teacherRoleEncryptCodeNumber;
           localStorage.setItem('token',Teacher.teacherTokenID);
           localStorage.setItem('role',this.loggedUserRoleType);
+          localStorage.setItem('name',Teacher.teacherName.split(' ')[0]);
           if (this._commonService.tempLocation.length == 0){
             this._router.navigate(['home']);
           }else {
             this._router.navigate([this._commonService.tempLocation.pop()]);
           }
         }else {
-          alert("Wrong Credentials");
+          this._commonService.snackBarShow("Wrong Credentials");
         }
 
       })
@@ -138,7 +140,6 @@ export class AuthService {
   logOutUser(){
 
     this.localStorageClearing();
-
     if (this._commonService.tempLocation.length != 0){
       this._commonService.tempLocation = [];
     }
@@ -157,7 +158,13 @@ export class AuthService {
     if (localStorage.getItem('role') != null){
       localStorage.removeItem('role');
     }
+    if (localStorage.getItem('name') != null){
+      localStorage.removeItem('name');
+    }
+  }
 
+  getUserName(){
+    return localStorage.getItem('name');
   }
 
 

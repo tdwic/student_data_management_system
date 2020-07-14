@@ -33,13 +33,13 @@ export class MainloginComponent implements OnInit {
     this.userType = userName.substring(0,2);
 
     if (this.userType == this.userRoleAnnotationForStudent){
-      alert("Login User Role "+this.userType+" Student");
+      // alert("Login User Role "+this.userType+" Student");
       this.authService.authenticateUser(userName,passWord, "_STUDENT_");
     }else if (this.userType == this.userRoleAnnotationForAdmin){
-      alert("Login User Role "+this.userType+" Admin");
+      // alert("Login User Role "+this.userType+" Admin");
       this.authService.authenticateUser(userName,passWord, "_ADMIN_");
     }else if (this.userType == this.userRoleAnnotationForTeacher){
-      alert("Login User Role "+this.userType+" Teacher");
+      // alert("Login User Role "+this.userType+" Teacher");
       this.authService.authenticateUser(userName,passWord, "_TEACHER_");
     }else {
 
