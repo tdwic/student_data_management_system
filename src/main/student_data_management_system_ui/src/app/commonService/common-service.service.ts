@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {AuthService} from '../auth-service';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class CommonServiceService {
   tempLocation:string[] = [];
   _apiUrl_:string = "http://localhost:8181";
 
-  constructor(private http: HttpClient) {  }
+  constructor(private http: HttpClient,
+              private _snackBar:MatSnackBar) {  }
 
   //FindAll Methods
   public getAllStudentList():Observable<any>{
@@ -57,5 +59,16 @@ export class CommonServiceService {
     return this.http.post<any>(this._apiUrl_+"/teacher" , Teacher);
   }
   //Post Methods
+
+
+  public snackBarShow(message){
+    this._snackBar.open(message,'', {
+      duration: 3000,
+      panelClass:['testClass'],
+      horizontalPosition:'end',
+      verticalPosition:'top'
+    });
+  }
+
 
 }

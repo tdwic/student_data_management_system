@@ -78,15 +78,10 @@ export class UpdateStudentComponent implements OnInit {
     StudentUpdate.studentParent = this.studentDetailsForm.value['studentParent'];
 
     this._commonService.signUpNewUser(StudentUpdate).subscribe(res => {
-      this._snackBar.open('Data Updated','', {
-        duration: 3000,
-        panelClass:['testClass'],
-        horizontalPosition:'end',
-        verticalPosition:'top'
-      });
+      this._commonService.snackBarShow("DATA SAVED");
       this.dialogClose();
     }, error => {
-      alert("Db ERROR")
+      this._commonService.snackBarShow("DB ERROR");
     })
 
   }
