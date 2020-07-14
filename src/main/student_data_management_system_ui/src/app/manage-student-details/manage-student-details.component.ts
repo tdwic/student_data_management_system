@@ -4,6 +4,7 @@ import {CommonServiceService} from "../commonService/common-service.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatDialog} from "@angular/material/dialog";
 import {UpdateStudentComponent} from "../update-student/update-student.component";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 class Student {
   studentTokenID:string = '';
@@ -44,14 +45,12 @@ export class ManageStudentDetailsComponent implements OnInit {
   private data: any;
 
   constructor(private commonService : CommonServiceService,
-              public dialog:MatDialog) { }
+              public dialog:MatDialog,
+              private _snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
-    this.commonService.getAllStudentList().subscribe( res=>{
-      this.studentList = res;
-      this.dataSource = new MatTableDataSource(this.studentList);
-    })
+    this.populateTable();
   }
 
   updateStudentDetails(element){
@@ -61,11 +60,21 @@ export class ManageStudentDetailsComponent implements OnInit {
       data:{
         studentData:this.student
       },
+    }).afterClosed().subscribe( res=>{
+      console.log("Dialog result "+ res)
+      this.populateTable();
     });
   }
 
   removeStudentDetails(element){
     this.student = element
+  }
+
+  populateTable(){
+    this.commonService.getAllStudentList().subscribe( res=>{
+      this.studentList = res;
+      this.dataSource = new MatTableDataSource(this.studentList);
+    });
   }
 
 }

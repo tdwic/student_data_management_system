@@ -26,6 +26,7 @@ import { AddAnnouncementDetailsComponent } from './add-announcement-details/add-
 import { InsertExamMarksComponent } from './insert-exam-marks/insert-exam-marks.component';
 import { UpdateStudentComponent } from './update-student/update-student.component';
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import {MatDialog, MatDialogModule} from "@angular/material/dialog";
     MatPaginatorModule,
     MatDialogModule
   ],
-  providers: [AuthService,HttpClientModule, AuthGuard],
+  providers: [AuthService,HttpClientModule, AuthGuard, MatSnackBar],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
