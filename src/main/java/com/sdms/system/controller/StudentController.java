@@ -28,6 +28,11 @@ public class StudentController {
         return studentService.findUserByUserName(studentID);
     }
 
+    @RequestMapping(value = "/students/{studentID}",method = RequestMethod.DELETE)
+    public void removeStudent(@PathVariable String studentID){
+        studentService.removeStudentByStudentID(studentID);
+    }
+
     @RequestMapping(value = "/students",method = RequestMethod.GET)
     public List<Student> getAllStudents(){
         return studentService.getAllUsers();

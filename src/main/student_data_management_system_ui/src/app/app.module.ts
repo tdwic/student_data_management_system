@@ -27,6 +27,8 @@ import { InsertExamMarksComponent } from './insert-exam-marks/insert-exam-marks.
 import { UpdateStudentComponent } from './update-student/update-student.component';
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatCard, MatCardModule} from "@angular/material/card";
+import { RemoveConfirmationComponent } from './remove-confirmation/remove-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -44,10 +46,11 @@ import {MatSnackBar} from "@angular/material/snack-bar";
     ManageTeacherDetailsComponent,
     AddAnnouncementDetailsComponent,
     InsertExamMarksComponent,
-    UpdateStudentComponent
+    UpdateStudentComponent,
+    RemoveConfirmationComponent
   ],
 
-  entryComponents:[UpdateStudentComponent],
+  entryComponents:[UpdateStudentComponent,RemoveConfirmationComponent],
 
   imports: [
     BrowserModule,
@@ -59,7 +62,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
     NoopAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule
   ],
   providers: [AuthService,HttpClientModule, AuthGuard, MatSnackBar],
   bootstrap: [AppComponent]

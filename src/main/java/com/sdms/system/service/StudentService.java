@@ -21,6 +21,10 @@ public class StudentService {
         return studentRepository.findByStudentID(studentID);
     }
 
+    public void removeStudentByStudentID(String studentID){
+        studentRepository.removeStudentByStudentID(studentID);
+    }
+
     public List<Student> getAllUsers(){
         return studentRepository.findAll();
     }

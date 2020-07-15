@@ -7,5 +7,17 @@
       <h4 >Home</h4>
     </mdb-card-title>
 
+    <div class="announcement">
+      <mat-card class="mat-card-my" *ngFor="let announcement of newAnnouncemnt ">
+        <mat-card-header>
+          <mat-card-title>{{announcement.announcementTitle}}</mat-card-title>
+          <mat-card-subtitle>
+            <p>{{announcement.announcementContent}}</p>
+            <a href="{{announcement.announcementLink}}">{{announcement.announcementLink}}</a>
+          </mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+
   </mdb-card-body>
 </mdb-card>

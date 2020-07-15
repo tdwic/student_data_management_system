@@ -1,3 +1,17 @@
 .main-card{
   min-height: 100%;
 }
+.announcement{
+  border:1px red solid;
+  max-width: 30rem;
+  min-height: 30rem;
+  max-height: 30rem;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+.mat-card-my{
+  width: 28rem;
+  margin: 10px auto;
+  color: black;
+  background-color: #90ffc5;
+}

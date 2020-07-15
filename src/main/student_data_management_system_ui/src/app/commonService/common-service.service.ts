@@ -24,6 +24,10 @@ export class CommonServiceService {
   public getAllTeacherList():Observable<any>{
     return this.http.get<any>(this._apiUrl_+"/teacher");
   }
+
+  public getAllAnnouncements():Observable<any>{
+    return this.http.get(this._apiUrl_+"/announcement");
+  }
   //FindAll Methods
 
 
@@ -59,6 +63,13 @@ export class CommonServiceService {
     return this.http.post<any>(this._apiUrl_+"/teacher" , Teacher);
   }
   //Post Methods
+
+
+  //Delete Methods
+  public removeStudent(studentID){
+    this.http.delete(this._apiUrl_+"/students/" + studentID);
+  }
+  //Delete Methods
 
 
   public snackBarShow(message){
